@@ -14,9 +14,29 @@ jobs:
       matrix:
         include:
           - image: python
+            folder: python
             repo: docker.io
           - image: postgres
+            folder: postgres
             repo: docker.io/intland
+          - image: postgres
+            folder: postgre
+            repo: docker.io
+          - image: node
+            repo: docker.io/harisshafiq08
+            folder: nodejs-windows
+          - image: node
+            repo: docker.io/amitie10g
+            folder: node-nanoserver
+          - image: node
+            repo: docker.io
+            folder: node
+          - image: nginx
+            repo: docker.io
+            folder: nginx
+          - image: traefik
+            repo: docker.io
+            folder: traefik
     permissions:
       contents: read
       packages: write
@@ -31,7 +51,7 @@ jobs:
       - uses: imjasonh/setup-crane@v0.3
       - name: Mirror
         run: |
-          for tag in $(cat ./images/${{ matrix.image }}); do
+          for tag in $(cat ./images/${{ matrix.folder }}); do
             crane copy \
               ${{ matrix.repo }}/${{ matrix.image }}:$tag \
               ghcr.io/${{ github.repository_owner }}/${{ matrix.image }}:$tag
