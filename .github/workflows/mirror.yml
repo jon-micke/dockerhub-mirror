@@ -22,10 +22,10 @@ jobs:
           - image: postgres
             folder: postgre
             repo: docker.io
-          - image: node
+          - image: nodejs-windows
             repo: docker.io/harisshafiq08
             folder: nodejs-windows
-          - image: node
+          - image: node-nanoserver
             repo: docker.io/amitie10g
             folder: node-nanoserver
           - image: node
