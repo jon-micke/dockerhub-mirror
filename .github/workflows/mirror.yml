@@ -37,7 +37,7 @@ jobs:
           - image: traefik
             repo: docker.io
             folder: traefik
-          - image: postgresql-windows
+          - image: postgis-windows
             repo: sokigo
             folder: postgresql-windows
     permissions:
